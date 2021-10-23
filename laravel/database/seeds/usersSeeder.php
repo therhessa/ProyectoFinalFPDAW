@@ -21,6 +21,15 @@ class usersSeeder extends Seeder
             "image"=> '',
             "password"=>bcrypt('administradora')
         ]);
+        DB::table('users')->insert([
+            "role" => 'user',
+            "name"  => 'Juan',
+            "surname"   => 'Sanchez',
+            "nick" => 'juanito',
+            "email"  => 'admin1@admin.com',
+            "image"=> '',
+            "password"=>bcrypt('administrador')
+        ]);
        
     }
 }

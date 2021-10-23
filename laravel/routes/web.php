@@ -13,10 +13,15 @@
 
 Route::get('/','FruteriaController@index')->name('fruteria');
 
+Route::get('/producto', function () {
+    return view('producto');
+});
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'admin'], function(){
+    Route::get('/administrador','CategoriaController@index');
 
-
+});
 
 //user
 Route::get('/home/configuracion', 'UserController@config')->name('config');

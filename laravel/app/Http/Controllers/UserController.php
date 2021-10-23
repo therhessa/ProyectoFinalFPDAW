@@ -12,22 +12,11 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        
     }
 
-    public function index($search = null){
-        if(empty($search)){
-            $users = User::orderBy('id', 'desc')->paginate(3);
-        } else {
-            $users = User::where('nick', 'LIKE', '%'.$search.'%')
-                        ->orWhere('name', 'LIKE', '%'.$search.'%')
-                        ->orWhere('surname', 'LIKE', '%'.$search.'%')
-                        ->orderBy('id', 'desc')
-                        ->paginate(3);
-        }
-
-        return view('user.index', [
-            'users' => $users
-        ]);
+    public function index(){
+        return view("hola");
     }
     
     public function config(Request $request){
