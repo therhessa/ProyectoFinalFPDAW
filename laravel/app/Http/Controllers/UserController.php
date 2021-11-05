@@ -12,13 +12,13 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        
+
     }
 
     public function index(){
-        return view("hola");
+
     }
-    
+
     public function config(Request $request){
     	//return view('user.config');
         //$id=Auth::user()->id;
@@ -76,7 +76,7 @@ class UserController extends Controller
         // $user = \Auth::user()->find($id);
 
         return view('user.profile')->with('user', $user);
-   
-       
+
+
     }
 }

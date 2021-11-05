@@ -12,18 +12,18 @@ class CategoriaController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     * 
+     *
      *
      */
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin');
+       // $this->middleware('admin');
 
     }
 
 
-    
+
     public function index()
     {
         return view('administrador');
@@ -37,7 +37,7 @@ class CategoriaController extends Controller
     public function create()
     {
         //
-  
+
     }
 
     /**
@@ -47,16 +47,16 @@ class CategoriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {  
+    {
         /*
         $name = $request->input("name");
-      
+
         Categoria::insert([
           'cat_name' => $name,
           'cat_active' => 1,
           'cat_delete' => 0
         ]);
-  
+
         $response['message'] = "Guardo exitosamente $name";
         $response['success'] = true;
         return $response;
@@ -94,7 +94,7 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
     }
 
     /**

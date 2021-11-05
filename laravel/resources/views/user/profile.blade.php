@@ -7,6 +7,7 @@
         	<h1>Perfil</h1>
         	<hr/>
         	<div class="profile-user">
+              
 	        	@if($user->image)
 			        <div class="container-avatar">
 						<img src="/storage/users/{{$user->image}}"  class="avatar"> 
@@ -18,6 +19,7 @@
 						<h6 style="color:#ccc;" class="float-right">Se unió el: {{$user->created_at}}</h6>
 					</div>
 	        	@endif
+               
 	        	
         	</div>
 

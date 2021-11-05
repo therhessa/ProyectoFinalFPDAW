@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\User;
+use App\Role;
 
 class usersSeeder extends Seeder
 {
@@ -12,8 +14,11 @@ class usersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            "role" => 'admin',
+        $role_user = Role::where('name', 'user')->first();
+        $role_admin = Role::where('name', 'admin')->first();
+        /*
+         $user= DB::table('users')->insert([
+
             "name"  => 'tere',
             "surname"   => 'melero',
             "nick" => 'therhessa',
@@ -21,15 +26,51 @@ class usersSeeder extends Seeder
             "image"=> '',
             "password"=>bcrypt('administradora')
         ]);
-        DB::table('users')->insert([
-            "role" => 'user',
+        $user= DB::table('users')->insert([
+
             "name"  => 'Juan',
             "surname"   => 'Sanchez',
             "nick" => 'juanito',
             "email"  => 'admin1@admin.com',
             "image"=> '',
             "password"=>bcrypt('administrador')
+
         ]);
-       
+*/
+/*
+        DB::table('role_user')->insert([
+            'role_id' =>1,
+            'user_id' =>1,
+            'role_id' =>2,
+            'user_id' =>2,
+
+
+        ]);
+
+*/
+$role_user = Role::where('name', 'user')->first();
+$role_admin = Role::where('name', 'admin')->first();
+
+$user = new User();
+$user->name = 'tere';
+$user->surname = 'melero';
+$user->nick = 'therhessa';
+$user->email = 'admin@admin.com';
+$user->image = '';
+$user->password =bcrypt('administradora');
+$user->save();
+$user->roles()->attach($role_user);
+
+$user = new User();
+$user->name = 'juan';
+$user->surname = 'sanchez';
+$user->nick = 'juanito';
+$user->email = 'admin1@admin.com';
+$user->image = '';
+$user->password =bcrypt('administrador');
+$user->save();
+$user->roles()->attach($role_admin);
+
+
     }
 }
